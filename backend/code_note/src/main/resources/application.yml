@@ -1,0 +1,25 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  data:
+    mongodb:
+      uri: 
+      # host: localhost
+      port: 27017
+      database: codenote_db
+      auto-index-creation: true
+
+  # web:
+  #   cors:
+  #     allowed-origins: "http://localhost:3000"
+  #     allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+  #     allowed-headers: "*"
+  #     allow-credentials: true
+
+logging:
+  level:
+    com.deepshikhayadav: DEBUG
