@@ -1,4 +1,22 @@
 import React from 'react';
+import AceEditor from 'react-ace';
+
+// Import required AceEditor components and modes
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/mode-java';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/mode-html';
+import 'ace-builds/src-noconflict/mode-css';
+
+// Import themes
+import 'ace-builds/src-noconflict/theme-github';
+import 'ace-builds/src-noconflict/theme-monokai';
+import 'ace-builds/src-noconflict/theme-xcode';
+import 'ace-builds/src-noconflict/theme-textmate';
+
+// Import extensions
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 const Editor = ({ 
     title, setTitle, 
@@ -47,12 +65,31 @@ const Editor = ({
             
             <div className="editor-content">
                 <div className="code-editor">
-                    <textarea 
-                        value={code} 
-                        onChange={(e) => setCode(e.target.value)}
-                        style={{ width: '100%', height: '100%', padding: '15px', fontFamily: 'Monaco, Menlo, Ubuntu Mono, monospace', fontSize: '14px', border: 'none', resize: 'none' }}
-                        spellCheck="false"
-                    />
+                    <AceEditor
+                        placeholder="Code Editor"
+                        mode={language}
+                        theme="textmate"
+                        name="code-editor"
+                        width="100%"
+                        height="100%"
+                        onChange={setCode}
+                        editorProps={{ $blockScrolling: true }}
+                        fontSize={14}
+                        lineHeight={19}
+                        showPrintMargin={true}
+                        showGutter={true}
+                        highlightActiveLine={true}
+                        value={code}
+                        setOptions={{
+                            enableBasicAutocompletion: true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            enableMobileMenu: true,
+                            showLineNumbers: true,
+                            tabSize: 4,
+                        }}
+                        />
+               
                 </div>
                 
                 <div className="notes-section">

@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
+    "ace-builds": "^1.43.3",
     "axios": "^1.11.0",
     "react": "^19.1.1",
+    "react-ace": "^14.0.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
